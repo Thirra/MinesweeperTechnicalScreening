@@ -84,14 +84,14 @@ public class MinesweeperAlgorithm : MonoBehaviour
             mine.GetComponent<CellData>().cellType = Cell.MINE;
             grid[x, y].GetComponentInChildren<Text>().text = "MINE";
 
-            tilesSurrounding.Add(grid[x, y < height? y + 1 : y]);     //up
-            tilesSurrounding.Add(grid[x, y > 0 ? y - 1 : y]);   //down
+            tilesSurrounding.Add(grid[x, (y < height? y + 1 : y)]);     //up
+            tilesSurrounding.Add(grid[x, (y > 0 ? y - 1 : y)]);   //down
             tilesSurrounding.Add(grid[(x > 0 ? x - 1 : x), y]);     //left
             tilesSurrounding.Add(grid[(x < width ? x + 1 : x), y]);     //right
-            tilesSurrounding.Add(grid[x > 0 ? x - 1 : x, y < height ? y + 1 : y]);  //topLeft
-            tilesSurrounding.Add(grid[x < width ? x + 1 : x, y < height ? y + 1 : y]);  //topRight
-            tilesSurrounding.Add(grid[x > 0 ? x - 1 : x, y > 0 ? y - 1 : y]);   //bottomLeft
-            tilesSurrounding.Add(grid[x < width? x + 1 : x, y > 0 ? y - 1 : y]);     //bottomRight
+            tilesSurrounding.Add(grid[(x > 0 && y < height ? x - 1 : x), (x > 0 && y < height ? y + 1 : y)]);  //topLeft
+            tilesSurrounding.Add(grid[(x < width && y < height ? x + 1 : x), (x < width && y < height ? y + 1 : y)]);  //topRight
+            tilesSurrounding.Add(grid[(x > 0 && y > 0 ? x - 1 : x), (x > 0 && y > 0 ? y - 1 : y)]);   //bottomLeft
+            tilesSurrounding.Add(grid[(x < width && y > 0 ? x + 1 : x), (x < width && y > 0 ? y - 1 : y)]);     //bottomRight
 
             for (int index2 = 0; index2 < tilesSurrounding.Count; index2++)
             {
