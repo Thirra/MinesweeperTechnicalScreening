@@ -42,7 +42,7 @@ public class MinesweeperAlgorithm : MonoBehaviour
 	}
 	
     //Generating the field - solution always visible
-    public void GenerateMineField(int width, int height, int totalMines)
+    void GenerateMineField(int width, int height, int totalMines)
     {
         grid = new GameObject[width, height];
         //Generating the grid
@@ -105,7 +105,7 @@ public class MinesweeperAlgorithm : MonoBehaviour
     }
     
     //Checking for enum value on the button to make it a little bit neater
-    public void AddEnumNumber(GameObject button)
+    void AddEnumNumber(GameObject button)
     {
         int enumToAdd = (int)button.GetComponent<CellData>().cellType;
         enumToAdd += 1;
@@ -133,7 +133,7 @@ public class MinesweeperAlgorithm : MonoBehaviour
     }
 
     //Uncovering a specific cell - for M1 - M9
-    public void CloseSpecificCell(GameObject button)
+    void CloseSpecificCell(GameObject button)
     {
         button.GetComponent<CellData>().cellType = Cell.CLOSED;
         button.GetComponent<Button>().interactable = false;
@@ -141,7 +141,7 @@ public class MinesweeperAlgorithm : MonoBehaviour
     }
 
     //Uncovering a whole chunch of the cells for empty cells
-    public void GridUncover(int x, int y)
+    void GridUncover(int x, int y)
     {
         if (x >= 0 && y >= 0 && x < gridWidth && y < gridHeight)
         {
